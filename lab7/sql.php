@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
+
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
   </head>
   <body>
     <?php
-      $db = new PDO("mysql:dbname=college", "root", "dk2109");
+      $db = new PDO("mysql:dbname=college", "root", "root");
       $rows = $db->query("select * from student where major='컴퓨터공학'");
     ?>
     <ul>

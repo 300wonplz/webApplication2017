@@ -55,7 +55,6 @@ delete from student where name='김재진';
 
 
 
-e
 
 
 
