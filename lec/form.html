@@ -6,9 +6,18 @@
   <meta charset="utf-8">
   <title>Form</title>
   <link rel="stylesheet" href="./form.css">
+
+    <script>
+      function change(){
+        var bo = document.getElementById("123");
+        bo.style.color = "red";
+      }
+    </script>
 </head>
 
-<body>
+<body id="123">
+
+  <p id="234">asdf</p>
   <form action="form.php" method="get">
     <div>
       <label>Num1:</label>
@@ -23,6 +32,7 @@
       <input type="reset" value="Reset">
     </div>
   </form>
+  <button onclick="change();">테마 변경</button>
 </body>
 
-</html
+</html>

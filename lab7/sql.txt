@@ -46,6 +46,7 @@ insert into department(dept_name, office, office_tel) values( '경영학', '경�
 insert into department(dept_name, office, office_tel) values('영문학', '문화관 303호', '02-3290-4412');
 
 
+ex3)
 update department set dept_name='전자전기공학' where dept_name='전자공학';
 insert into department(dept_name, office, office_tel) values('특수교육학과', '공학관 403호', '02-3290-2347');
 
@@ -57,7 +58,7 @@ delete from student where name='김재진';
 
 
 
-
+ex4)
 select * from student where major='컴퓨터공학';
 select student_id, year, major from student;
 select * from student where year=3;
@@ -65,7 +66,7 @@ select * from student where year=1 OR year=2;
 select * from student natural join department where dept_no=4;
 
 
-
+ex5)
 select * from student where student_id LIKE '2007%';
 select * from student ORDER BY student_id;
 select major from student GROUP BY major HAVING avg(year)>3;
@@ -79,13 +80,13 @@ select * from student where major='경영학' AND student_id LIKE '2007%' LIMIT 
 
 
 
-
+ex6)
 select role from roles join movies on movie_id=id where name='Pi';
 select first_name, last_name from (actors join roles on id=actor_id) join movies on movie_id=movies.id where movies.name='Pi';
 select first_name, last_name from (actors join roles on id=actor_id) join movies on movie_id=movies.id where movies.name='Kill Bill: Vol. 2' OR movies.name='Kill Bill: Vol. 1' GROUP BY first_name, last_name HAVING count(first_name)=2 AND count(last_name)=2;
-select a.id, count(a.id) from (actors a join roles r on a.id=r.actor_id) join movies m on r.movie_id=m.id group by a.id ORDER BY count(a.id) DESC LIMIT 7;
+select a.first_name, a.last_name, count(a.id) from (actors a join roles r on a.id=r.actor_id) join movies m on r.movie_id=m.id group by a.id ORDER BY count(a.id) DESC LIMIT 7;
 select mg.genre from (movies_genres mg join roles r on mg.movie_id = r. movie_id) join movies m on m.id = mg.movie_id GROUP BY mg.genre ORDER BY count(mg.genre) DESC LIMIT 3;
-select d.first_name,d.last_name from directors d join movies_directors md on d.id=md.director_id join roles r on r.movie_id = md.movie_id join movies_genres mg on md.movie_id=mg.movie_id where mg.genre='Thriller' GROUP BY d.id ORDER BY count(d.id) DESC LIMIT 1;
+select d.first_name,d.last_name from directors d join movies_directors md on d.id=md.director_id join movies_genres mg on md.movie_id=mg.movie_id where mg.genre='Thriller' GROUP BY d.id ORDER BY count(d.id) DESC LIMIT 1;
 
 
 
@@ -95,7 +96,7 @@ select d.first_name,d.last_name from directors d join movies_directors md on d.i
 
 
 
-
+ex7)
 select g.grade from (students s join grades g on s.id=g.student_id) join courses c on g.course_id=c.id where c.name='Computer Science 143';
 select s.name, g.grade from (students s join grades g on s.id=g.student_id) join courses c on g.course_id=c.id where c.name='Computer Science 143' AND (g.grade='B-' OR g.grade='B' OR g.grade='B+' OR g.grade='A-' OR g.grade='A' OR g.grade='A+') ;
 select s.name,c.name ,g.grade from (students s join grades g on s.id=g.student_id) join courses c on g.course_id=c.id where (g.grade='B-' OR g.grade='B' OR g.grade='B+' OR g.grade='A-' OR g.grade='A' OR g.grade='A+');
