@@ -44,7 +44,7 @@ for ($i = 0; $i < count($lines); $i++) {
 		print "\t\t<author>$author</author>\n";
 		print "\t\t<year>$year</year>\n";
 		print "\t\t<price>$price</price>\n";
-		print "\t</book>\n";		
+		print "\t</book>\n";
 	}
 }
 print "</books>";
